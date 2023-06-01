@@ -8,6 +8,7 @@ class Hash_Table:
             prime = [2, 3]
             for i in range(self.m):
                 for j in prime:
+                    p=True
                     if i % j == 0:
                         p = False
                         break
@@ -48,20 +49,19 @@ class Hash_Table:
     def fill_double(self, l):
         self.doublehashing = [0] * self.m
         for i in l:
-            c = 0
+            c = 1
             index = self.hashfunc(i[1])
             while self.doublehashing[index] != 0:
-                index = (index + c * self.hashfunc2(i[1])) % self.m
+                index = (self.hashfunc(i[1]) + c * self.hashfunc2(i[1])) % self.m
                 c += 1
             self.doublehashing[index] = i
 
 
 def check_rep(num):
     for i in entries:
-        if i != 0:
-            if num == i[1]:
-                print("Number already in use")
-                return False
+        if num == i[1]:
+            print("Number already in use")
+            return False
     return True
 
 
