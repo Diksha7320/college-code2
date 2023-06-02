@@ -44,11 +44,11 @@ class priority_queue {
                     queue[i + 1] = queue[i];
                     priority_val[i + 1] = priority_val[i];
                 } else {
-                    queue[i + 1] = data;
-                    priority_val[i + 1] = priority;
                     break;
                 }
             }
+            queue[i + 1] = data;
+            priority_val[i + 1] = priority;
         }
     }
 
@@ -130,9 +130,3 @@ int main() {
 
     return 0;
 }
-
-/*
-1 ram 2
-1 shyam 0
-1 hari 1
-*/
