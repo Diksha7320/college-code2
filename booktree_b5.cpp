@@ -17,7 +17,6 @@ class BookTree
 {
 public:
     Node *head;
-    bool present(Node *root, string val);
     void display();
     void createtree();
     BookTree()
@@ -33,27 +32,36 @@ void BookTree::createtree()
     cin >> head->name;
     cout << "Enter number of chapter in book:";
     cin >> head->count;
-
+    // chapter for loop
     for (int i = 0; i < head->count; i++)
     {
-        bool flag = true;
-        string temp;
         head->child[i] = new Node;
         cout << "Enter Name of chapter " << i + 1 << ":";
         cin >> head->child[i]->name;
         cout << "Enter number of sections in chapter" << i + 1 << ":";
         cin >> head->child[i]->count;
+        // Section for loop
         for (int j = 0; j < head->child[i]->count; j++)
         {
             head->child[i]->child[j] = new Node;
             cout << "Enter Name of section " << j + 1 << ":";
             cin >> head->child[i]->child[j]->name;
+            cout << "Enter number of sub-sections in section" << i + 1 << ":";
+            cin >> head->child[i]->child[j]->count;
+            // sub-section for loop
+            for (int k = 0; k < head->child[i]->child[j]->count; k++)
+            {
+                head->child[i]->child[j]->child[k] = new Node;
+                cout << "Enter Name of sub-section " << j + 1 << ":";
+                cin >> head->child[i]->child[j]->child[k]->name;
+            }
         }
     }
 }
+
 void BookTree::display()
 {
-    cout<<"****Book Tree Hierarchy****"<<endl;
+    cout << "****Book Tree Hierarchy****" << endl;
     if (head == NULL)
         cout << "Tree empty" << endl;
     cout << "Book name is : " << head->name << endl;
@@ -63,6 +71,9 @@ void BookTree::display()
         for (int j = 0; j < head->child[i]->count; j++)
         {
             cout << "\t\tName of section:" << head->child[i]->child[j]->name << endl;
+            for (int k = 0; k < head->child[i]->child[j]->count; k++){
+                cout << "\t\t\tName of sub section section:" << head->child[i]->child[j]->child[k]->name << endl;
+            }
         }
     }
 }
