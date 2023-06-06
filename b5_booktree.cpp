@@ -85,7 +85,7 @@ int main()
 	do
 	{
 		cout<<"**********MENU**********"<<endl;
-		cout<<"1.Entry in the tree\n2.Display the tree data"<<endl;
+		cout<<"1.Entry in the tree\n2.Display the tree data\n3.Exit"<<endl;
 		cout<<"Enter your choice : ";
 		cin>>ch;
 		switch(ch)
@@ -97,20 +97,20 @@ int main()
 			case 2:
 				B.display();
 				break;
+
+            case 3:
+                cout<<"Exited successfully!";
+                break;
 				
 			default:
 				cout<<"You have entered a wrong choice!!!"<<endl;
 				cout<<"Please try again!!"<<endl;
 				
 		}
-		cout<<"\nDo you want to continue???"<<endl;
-		cout<<"1.Yes\n2.No"<<endl;
-		cin>>ans;
 		
 		
-	}while(ans==1);
+		
+	}while(ch!=3);
 	
-	if (ans>=2)
-		cout<<"Exited successfully!!!"<<endl;
 	return 0;
 }
