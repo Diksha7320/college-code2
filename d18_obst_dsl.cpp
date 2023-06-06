@@ -1,6 +1,12 @@
+/*Given sequence k = k1 <k2 < … <kn of n sorted keys, with a search probability pi for each 
+key ki . Build the Binary search tree that has the least search cost given the access 
+probability for each key.
+*/
+
 #include<iostream>
 using namespace std;
 #define MAX 10
+
 int find(int,int);
 void print(int,int);
 int p[MAX],q[MAX],w[10][10],c[10][10],r[10][10],i,j,k,n,m;
@@ -79,3 +85,21 @@ if(i<j)
 	print(i,r[i][j]-1);
 	print(r[i][j],j);
 }
+
+/*
+4
+do
+if
+read
+write
+1
+3
+1
+3
+1
+2
+1
+1
+3
+
+*/
